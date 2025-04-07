@@ -1,0 +1,45 @@
+<section id="order" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center mb-4">
+                <h2 class="text-primary">Place Your Order</h2>
+                <p class="text-muted">Fill out the form below to submit your order.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form id="orderForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Your Phone Number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Delivery Address</label>
+                        <textarea class="form-control" id="address" rows="3" placeholder="Your Address" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="orderDetails" class="form-label">Order Details</label>
+                        <textarea class="form-control" id="orderDetails" rows="5" placeholder="Enter your order details here (e.g., item names, quantities, special requests)" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="paymentMethod" class="form-label">Payment Method</label>
+                        <select class="form-select" id="paymentMethod">
+                            <option value="credit_card">Credit Card</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="cash_on_delivery">Cash on Delivery</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

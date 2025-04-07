@@ -1,0 +1,111 @@
+css
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide In From Left */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide In From Right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide In From Bottom */
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Change Background Color */
+@keyframes changeBackgroundColor {
+  0% {
+    background-color: #FFFF00; /* Yellow */
+  }
+  50% {
+    background-color: #0000FF; /* Blue */
+  }
+  100% {
+    background-color: #FFFF00; /* Yellow */
+  }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Rotate Animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Example Usage - Add these classes to HTML elements */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 1s ease-in-out;
+}
+
+.slide-in-bottom {
+  animation: slideInBottom 1s ease-in-out;
+}
+
+.change-bg-color {
+  animation: changeBackgroundColor 5s linear infinite;
+}
+
+.pulse-animation {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.rotate-animation {
+    animation: rotate 2s linear infinite;
+}
