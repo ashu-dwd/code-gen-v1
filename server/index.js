@@ -50,7 +50,10 @@ app.post('/api/v1/generate', async (req, res) => {
             return res.status(400).json({ error: 'Query is required' });
         }
 
-        const rawResponse = await fileGenController(query);
+        const enhancedQuery = await promptGen(query);
+        console.log('Enhanced query ready');
+
+        const rawResponse = await fileGenController(enhancedQuery);
         const cleanedJson = cleanJsonQuery(rawResponse);
 
         let jsonStructure;
@@ -62,9 +65,6 @@ app.post('/api/v1/generate', async (req, res) => {
 
         const folderName = generateProjectStructure(jsonStructure);
         console.log('Project folder created:', folderName);
-
-        const enhancedQuery = await promptGen(query);
-        console.log('Enhanced query ready');
 
         await writeCodeRecursively(jsonStructure.structure, folderName, enhancedQuery, jsonStructure);
 

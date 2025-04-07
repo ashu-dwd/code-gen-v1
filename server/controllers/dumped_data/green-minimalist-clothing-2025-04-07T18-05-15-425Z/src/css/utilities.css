@@ -1,0 +1,140 @@
+/* Utilities CSS */
+
+/* Typography */
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Colors */
+.primary-color {
+  color: #4CAF50; /* Green */
+}
+
+.bg-primary {
+  background-color: #4CAF50;
+}
+
+.secondary-color {
+  color: #607D8B; /* Grayish Blue */
+}
+
+.bg-secondary {
+  background-color: #607D8B;
+}
+
+.light-color {
+  color: #f4f4f4;
+}
+
+.bg-light {
+  background-color: #f4f4f4;
+}
+
+.dark-color {
+  color: #333;
+}
+
+.bg-dark {
+  background-color: #333;
+}
+
+/* Spacing */
+.py-1 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-2 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-3 { padding-top: 3rem; padding-bottom: 3rem; }
+.py-4 { padding-top: 4rem; padding-bottom: 4rem; }
+
+.px-1 { padding-left: 1rem; padding-right: 1rem; }
+.px-2 { padding-left: 2rem; padding-right: 2rem; }
+.px-3 { padding-left: 3rem; padding-right: 3rem; }
+.px-4 { padding-left: 4rem; padding-right: 4rem; }
+
+.my-1 { margin-top: 1rem; margin-bottom: 1rem; }
+.my-2 { margin-top: 2rem; margin-bottom: 2rem; }
+.my-3 { margin-top: 3rem; margin-bottom: 3rem; }
+.my-4 { margin-top: 4rem; margin-bottom: 4rem; }
+
+.mx-1 { margin-left: 1rem; margin-right: 1rem; }
+.mx-2 { margin-left: 2rem; margin-right: 2rem; }
+.mx-3 { margin-left: 3rem; margin-right: 3rem; }
+.mx-4 { margin-left: 4rem; margin-right: 4rem; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  background-color: #4CAF50;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #388E3C;
+}
+
+.btn-primary {
+  background-color: #4CAF50;
+}
+
+.btn-primary:hover {
+  background-color: #388E3C;
+}
+
+.btn-secondary {
+  background-color: #607D8B;
+}
+
+.btn-secondary:hover {
+  background-color: #455A64;
+}
+
+/* Text alignment */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* List Styles */
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Other utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}

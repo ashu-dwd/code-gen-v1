@@ -1,58 +1,56 @@
 const fs = require('fs');
 const path = require('path');
 
-// Create a unique folder name with timestamp
-const generateFolderName = (projectStructure) => {
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    return `${projectStructure["project-name"]}-${timestamp}`;
+// Generate a folder name using the project name and current timestamp
+const createFolderName = (projectInfo) => {
+    const time = new Date().toISOString().replace(/[:.]/g, '-');
+    return `${projectInfo["project-name"]}-${time}`;
 };
 
-// Create directory if it doesn't exist
-const createDirectory = (dirPath) => {
-    if (!fs.existsSync(dirPath)) {
-        fs.mkdirSync(dirPath, { recursive: true });
-        console.log(`Created directory: ${dirPath}`);
+// Make a directory if it doesn't exist
+const makeDir = (dir) => {
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+        console.log(`Created folder: ${dir}`);
     }
 };
 
-// Create empty file
-const createFile = (filePath) => {
-    fs.writeFileSync(filePath, '', 'utf8');
-    console.log(`Created file: ${filePath}`);
+// Make an empty file
+const makeFile = (file) => {
+    fs.writeFileSync(file, '', 'utf8');
+    console.log(`Created file: ${file}`);
 };
 
-// Recursively process the structure and create files and directories
-const processStructure = (structure, currentPath) => {
-    for (const key in structure) {
-        const itemPath = path.join(currentPath, key);
+// Loop through the structure and create folders/files accordingly
+const buildStructure = (items, basePath) => {
+    for (const name in items) {
+        const fullPath = path.join(basePath, name);
 
-        // If value is an empty object, it's a file
-        if (Object.keys(structure[key]).length === 0) {
-            createFile(itemPath);
+        if (Object.keys(items[name]).length === 0) {
+            // Empty object = file
+            makeFile(fullPath);
         } else {
-            // Otherwise, it's a directory
-            createDirectory(itemPath);
-            processStructure(structure[key], itemPath);
+            // Otherwise it's a folder
+            makeDir(fullPath);
+            buildStructure(items[name], fullPath);
         }
     }
 };
 
-// Main function to generate project structure
-const generateProjectStructure = (jsonStructure) => {
-    // Generate base folder name
-    const baseFolder = generateFolderName(jsonStructure);
+// Main function to start building the project structure
+const generateProjectStructure = (projectData) => {
+    const folderName = createFolderName(projectData);
+    const fullPath = path.join(__dirname, 'dumped_data', folderName);
 
-    console.log(`Generating project structure for: ${jsonStructure["project-name"]}`);
-    console.log(`Description: ${jsonStructure["project-description"]}`);
+    console.log(`Creating project: ${projectData["project-name"]}`);
+    console.log(`Description: ${projectData["project-description"]}`);
 
-    // Create base directory
-    createDirectory(baseFolder);
+    makeDir(fullPath); // Create base folder inside "dumped"
+    buildStructure(projectData.structure, fullPath); // Build inner structure
 
-    // Process structure starting from base folder
-    processStructure(jsonStructure.structure, baseFolder);
-    console.log(`Project structure generated successfully in folder: ${baseFolder}`);
-    return baseFolder;
+    console.log(`Project successfully created in: ${fullPath}`);
+    return fullPath;
 };
 
-// Execute the generator
+// Export the function
 module.exports = generateProjectStructure;
